@@ -13,7 +13,7 @@ import { MenuIcon } from "lucide-react"
 
 function Navbar() {
   return (
-    <nav className="flex p-2 justify-between items-center">
+    <nav className="bg-zinc-100 border-b-zinc-200 border-b flex p-2 justify-between items-center">
       <div className="flex items-center gap-2">
         <Menubar className="bg-transparent border-0">
           <MenubarMenu>
@@ -29,7 +29,7 @@ function Navbar() {
             </MenubarContent>
           </MenubarMenu>
         </Menubar>
-        <div>BMO SaaS Starter</div>
+        <div>Clerk/Supabase Integration Demo</div>
       </div>
       <UserButton />
     </nav>

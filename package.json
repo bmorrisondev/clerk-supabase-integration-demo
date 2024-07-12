@@ -1,5 +1,5 @@
 {
-  "name": "bmo-saas-starter",
+  "name": "clerk-supabase-integration-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,10 @@
     "@clerk/nextjs": "^5.1.6",
     "@hookform/resolvers": "^3.6.0",
     "@neondatabase/serverless": "^0.9.3",
+    "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-menubar": "^1.1.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@supabase/supabase-js": "^2.44.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.396.0",
@@ -22,6 +25,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.52.0",
+    "react-icons": "^5.2.1",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
