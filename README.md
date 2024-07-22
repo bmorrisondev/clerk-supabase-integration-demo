@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Clerk Supabase Integration Demo
 
-## Getting Started
+This repository demonstrates how the Clerk Supabase integration operates
 
-First, run the development server:
+## How this project works
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The Clerk Supabase integration functions by using a custom Supabase Client object in the application that adds a Clerk Access Token to the header of requests to Supabase. Using Row Level Security, Supabase will match the Clerk User ID to values stored in a `user_id` column of a Supabase table.
+
+The [Clerk docs](https://clerk.com/docs/integrations/databases/supabase) contain more information about how to set up this integration with your own project, but you can also review the code at `src/app/pages.tsx`. All relevant code is commented to make it easier to understand and integrate.
+
+## Running the project
+
+If you'd rather test the integration yourself, you may do
+
+1. Create a Supabase Project
+2. Create a table in your Supabase project with the following schema:
+```sql
+create table tasks(
+  id serial primary key,
+  name text not null,
+  is_done boolean not null default false,
+  user_id text not null default requesting_user_id()
+);
 ```
+3. Run the following in the terminal to clone this repository to your computer:
+```bash
+git clone https://github.com/clerk/clerk-supabase-integration-demo
+```
+4.  Follow the directions on the Clerk docs to configure RLS and the necessary functions.
+  - When directed, use the table name of `tasks`.
+  - Note that the `.env.local` values will be added to that file at the root of the project.
+5.  At the root of the project, run the following commands in the terminal to install the dependencies and start the project:
+```bash
+npm install
+npm run dev
+```
+6. Open the project in your browser at the URL shown in your terminal.
+7. Create an account or log in with an existing account.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+From here, you may test creating and managing tasks, as well as switching between different accounts.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
