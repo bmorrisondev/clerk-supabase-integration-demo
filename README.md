@@ -1,4 +1,4 @@
-# Clerk Supabase Integration Demo
+# Clerk Supabase Next.js Demo
 
 This repository demonstrates how the Clerk Supabase integration operates
 
