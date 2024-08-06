@@ -45,7 +45,7 @@ function createClerkSupabaseClient() {
 // 👉 Create a `client` object for accessing Supabase data using the Clerk token
 const client = createClerkSupabaseClient();
 
-export default   function Home() {
+export default function Home() {
   const [tasks, setTasks] = useState<any[]>([])
   const [name, setName] = useState('')
   // 👉 The `useUser` hook will be used to ensure that Clerk has loaded data about the logged in user
